@@ -1,0 +1,22 @@
+*.iml
+.idea/*
+task1_2/.gitignore
+
+# Java
+*.class
+*.jar
+*.war
+*.ear
+
+# IntelliJ IDEA
+.idea/
+*.iml
+out/
+
+# VSCode (caso use)
+.vscode/
+
+# Arquivos de build
+build/
+target/
+bin/
