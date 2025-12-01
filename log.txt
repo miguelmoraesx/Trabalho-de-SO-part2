@@ -1,0 +1,24 @@
+================================
+=== Relatório de Experimento ===
+Tamanho: 隀
+Número de Threads: 6
+Tempo seq: 15.044689 ms
+Tempo par: 24.964633 ms
+Speedup: 0.6026401029007716
+================================
+================================
+=== Relatório de Experimento ===
+Tamanho: 隀
+Número de Threads: 6
+Tempo seq: 9.753695 ms
+Tempo par: 24.618271 ms
+Speedup: 0.3961974015153217
+================================
+================================
+=== Relatório de Experimento ===
+Tamanho: 1000 x 1000
+Número de Threads: 6
+Tempo seq: 1829.698058 ms
+Tempo par: 415.720553 ms
+Speedup: 4.401269181415719
+================================

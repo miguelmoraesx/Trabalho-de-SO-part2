@@ -6,66 +6,60 @@ import src.matriz.MultiplicaSeq;
 import src.vetor.ProdutoEscalarPar;
 import src.vetor.ProdutoEscalarSeq;
 
+import java.io.IOException;
 import java.util.Scanner;
+import src.utils.Logger;
 
 public class Main {
 
     public static void main(String[] args) {
         Scanner s = new Scanner(System.in);
-        int tamanhoVetor = 10_000_000;
-        int tamanhoMatriz = 1_000;
-
         //System.out.print("Digite a quantidade de Threads: ");
         //int numThreads = s.nextInt();
         int numThreads = Runtime.getRuntime().availableProcessors();
-
+        Logger log = new Logger("VETOR", "log.txt", numThreads);
+        int tamanhoVetor = 10_000_000;
+        int tamanhoMatriz = 1_000;
+        
         int[] a = GeradorDados.vetorAleatorio(tamanhoVetor);
         int[] b = GeradorDados.vetorAleatorio(tamanhoVetor);
 
         try {
             // sequencial
-            long inicioSeq = System.nanoTime();
-            long resultadoSeq = ProdutoEscalarSeq.calcula(a, b);
-            long tempoSeq = System.nanoTime() - inicioSeq;
-
+            log.iniciar();
+            ProdutoEscalarSeq.calcula(a, b);
+            log.finalizar("Produto escalar sequencial");
+            log.registrarTempoSequencial();
             // paralelo
-            long inicioPar = System.nanoTime();
-            long resultadoPar = ProdutoEscalarPar.calcula(a, b, numThreads);
-            long tempoPar = System.nanoTime() - inicioPar;
-
-            System.out.println("=== Produto Escalar ===");
-            System.out.println("Tamanho: " + tamanhoVetor);
-            System.out.println("Threads: " + numThreads);
-            System.out.println("Resultado (seq): " + resultadoSeq);
-            System.out.println("Resultado (par): " + resultadoPar);
-            System.out.println("Tempo seq: " + tempoSeq / 1_000_000.0 + " ms");
-            System.out.println("Tempo par: " + tempoPar / 1_000_000.0 + " ms");
-            double speedup = (double) tempoSeq / tempoPar;
-            System.out.println("Speedup: " + speedup);
+            log.iniciar();
+            ProdutoEscalarPar.calcula(a, b, numThreads);
+            log.finalizar("Produto escalar paralelo");
+            log.registrarTempoParalelo();
+            
+            log.relatorio(tamanhoVetor);
 
             //matrizes
             int[][] d = GeradorDados.matrizAleatoria(tamanhoMatriz, tamanhoMatriz);
             int[][] e = GeradorDados.matrizAleatoria(tamanhoMatriz, tamanhoMatriz);
 
+            log.setTag("MATRIZ");
             // sequencial
-            inicioSeq = System.nanoTime();
+            log.iniciar();
             int[][] resultadoMatrizSeq = MultiplicaSeq.calcula(d, e);
-            tempoSeq = System.nanoTime() - inicioSeq;
+            log.finalizar("Multiplicação de matrizes sequencial");
+            log.registrarTempoSequencial();
 
             //paralelo
-            inicioPar = System.nanoTime();
+            log.iniciar();
             int[][] resultadoMatrizPar = MultiplicaPar.calcula(d, e, numThreads, 16);
-            tempoPar = System.nanoTime() - inicioPar;
+            log.finalizar("Multiplicação de matrizes paralelo");
+            log.registrarTempoParalelo();
 
-            System.out.println("=== Multiplicação de Matrizes ===");
-            System.out.println("Tamanho: " + tamanhoMatriz + " x " +tamanhoMatriz);
-            System.out.println("Threads: " + numThreads);
-            System.out.println("Tempo seq: " + tempoSeq / 1_000_000.0 + " ms");
-            System.out.println("Tempo par: " + tempoPar / 1_000_000.0 + " ms");
-            speedup = (double) tempoSeq / tempoPar;
-            System.out.println("Speedup: " + speedup);
+            log.relatorio(tamanhoMatriz, tamanhoMatriz);
         } catch (InterruptedException e) {
             e.printStackTrace();
+        } catch (IOException e1) {
+            e1.printStackTrace();
         }
     }
 }
