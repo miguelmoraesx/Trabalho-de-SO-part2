@@ -20,3 +20,7 @@ out/
 build/
 target/
 bin/
+
+# binários da questão 3
+task3/bin/
+task3/hash.txt
