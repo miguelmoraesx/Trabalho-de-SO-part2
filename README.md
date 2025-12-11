@@ -4,7 +4,7 @@ Repositório público com a implementação do **Trabalho Prático 2** da discip
 O foco do TP é experimentar **programação paralela com threads**, comparar com a versão sequencial e analisar o ganho de desempenho.
 
 > Linguagens utilizadas:
-> - **Java** (Questões 1 e 2 – vetores e matrizes, com `Thread`)
+> - **Java** (Questões 1 – vetores e matrizes, com `Thread`)
 > - **C (pthread)** (Questão 3 – simulação de aplicação com threads)
 
 ---
