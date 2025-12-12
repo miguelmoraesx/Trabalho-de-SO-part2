@@ -1,0 +1,108 @@
+VETOR: Produto escalar sequencial | tempo = 4.831247 ms
+VETOR: Produto escalar paralelo | tempo = 9.608052 ms
+VETOR: Produto escalar paralelo | tempo = 14.596504 ms
+VETOR: Produto escalar paralelo | tempo = 2.955891 ms
+================================
+=== Relatório de Experimento ===
+Tamanho: 200000
+Número de Threads: 4
+Tempo seq: 4.831247 ms
+Tempo par (média): 9.053482 ms
+Speedup: 0.5336341310448289
+================================
+VETOR: Produto escalar sequencial | tempo = 4.829724 ms
+VETOR: Produto escalar paralelo | tempo = 7.556568 ms
+VETOR: Produto escalar paralelo | tempo = 20.802627 ms
+VETOR: Produto escalar paralelo | tempo = 9.619415 ms
+================================
+=== Relatório de Experimento ===
+Tamanho: 200000
+Número de Threads: 8
+Tempo seq: 4.829724 ms
+Tempo par (média): 12.659536 ms
+Speedup: 0.3815087693577395
+================================
+VETOR: Produto escalar sequencial | tempo = 4.648634 ms
+VETOR: Produto escalar paralelo | tempo = 8.803243 ms
+VETOR: Produto escalar paralelo | tempo = 15.805694 ms
+VETOR: Produto escalar paralelo | tempo = 13.398695 ms
+================================
+=== Relatório de Experimento ===
+Tamanho: 200000
+Número de Threads: 16
+Tempo seq: 4.648634 ms
+Tempo par (média): 12.66921 ms
+Speedup: 0.36692374662666416
+================================
+VETOR: Produto escalar sequencial | tempo = 10.182691 ms
+VETOR: Produto escalar paralelo | tempo = 41.688289 ms
+VETOR: Produto escalar paralelo | tempo = 35.826341 ms
+VETOR: Produto escalar paralelo | tempo = 3.296209 ms
+================================
+=== Relatório de Experimento ===
+Tamanho: 1000000
+Número de Threads: 4
+Tempo seq: 10.182691 ms
+Tempo par (média): 26.936946 ms
+Speedup: 0.37801950525497585
+================================
+VETOR: Produto escalar sequencial | tempo = 8.286817 ms
+VETOR: Produto escalar paralelo | tempo = 63.006273 ms
+VETOR: Produto escalar paralelo | tempo = 66.45615 ms
+VETOR: Produto escalar paralelo | tempo = 3.680336 ms
+================================
+=== Relatório de Experimento ===
+Tamanho: 1000000
+Número de Threads: 8
+Tempo seq: 8.286817 ms
+Tempo par (média): 44.380919 ms
+Speedup: 0.18672026597736743
+================================
+VETOR: Produto escalar sequencial | tempo = 8.894029 ms
+VETOR: Produto escalar paralelo | tempo = 57.961624 ms
+VETOR: Produto escalar paralelo | tempo = 24.419329 ms
+VETOR: Produto escalar paralelo | tempo = 9.012559 ms
+================================
+=== Relatório de Experimento ===
+Tamanho: 1000000
+Número de Threads: 16
+Tempo seq: 8.894029 ms
+Tempo par (média): 30.464504 ms
+Speedup: 0.2919472773953582
+================================
+VETOR: Produto escalar sequencial | tempo = 12.865688 ms
+VETOR: Produto escalar paralelo | tempo = 31.12957 ms
+VETOR: Produto escalar paralelo | tempo = 25.723625 ms
+VETOR: Produto escalar paralelo | tempo = 5.275841 ms
+================================
+=== Relatório de Experimento ===
+Tamanho: 10000000
+Número de Threads: 4
+Tempo seq: 12.865688 ms
+Tempo par (média): 20.709678 ms
+Speedup: 0.6212403688748807
+================================
+VETOR: Produto escalar sequencial | tempo = 12.507481 ms
+VETOR: Produto escalar paralelo | tempo = 67.767227 ms
+VETOR: Produto escalar paralelo | tempo = 49.037764 ms
+VETOR: Produto escalar paralelo | tempo = 7.011766 ms
+================================
+=== Relatório de Experimento ===
+Tamanho: 10000000
+Número de Threads: 8
+Tempo seq: 12.507481 ms
+Tempo par (média): 41.272252 ms
+Speedup: 0.3030481835592591
+================================
+VETOR: Produto escalar sequencial | tempo = 13.26257 ms
+VETOR: Produto escalar paralelo | tempo = 175.869447 ms
+VETOR: Produto escalar paralelo | tempo = 6.14693 ms
+VETOR: Produto escalar paralelo | tempo = 10.288368 ms
+================================
+=== Relatório de Experimento ===
+Tamanho: 10000000
+Número de Threads: 16
+Tempo seq: 13.26257 ms
+Tempo par (média): 64.101581 ms
+Speedup: 0.20689926508988912
+================================
