@@ -16,9 +16,9 @@
 
 #define ARQUIVO_HASH "hash.txt"
 
-// Converte número 0..9999 para PIN de 4 dígitos (0000..9999)
+// Converte número 0..999999 para PIN de 6 dígitos (000000..999999)
 void gera_pin(int numero, char *saida) {
-    sprintf(saida, "%04d", numero);
+    sprintf(saida, "%06d", numero);
 }
 
 double calcula_tempo_ms(struct timespec inicio, struct timespec fim) {
@@ -35,7 +35,7 @@ void limpar_stdin() {
 void definir_senha() {
     char senha[16];
 
-    printf("Digite a senha (PIN de 4 digitos, ex: 0420): ");
+    printf("Digite a senha (PIN de 6 digitos, ex: 042089): ");
     if (scanf("%15s", senha) != 1) {
         printf("Erro de leitura da senha.\n");
         limpar_stdin();
@@ -67,7 +67,7 @@ void ataque_sequencial() {
     struct timespec inicio, fim;
     clock_gettime(CLOCK_MONOTONIC, &inicio);
 
-    for (int i = 0; i < 10000; i++) {
+    for (int i = 0; i < 1000000; i++) {
         gera_pin(i, tentativa);
         int h = hash_senha(tentativa);
 

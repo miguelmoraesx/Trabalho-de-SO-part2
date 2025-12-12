@@ -5,6 +5,7 @@
 #include <pthread.h>
 #include <time.h>
 #include <unistd.h>
+#include <stdatomic.h>
 #include "hash_utils.h"
 
 #define VERBOSE 0  // 0 = sem prints internos, 1 = com prints
@@ -24,14 +25,13 @@ typedef struct {
 } ThreadArgs;
 
 // Variáveis globais compartilhadas
-pthread_mutex_t mutex_encontrou;
-int  hash_alvo      = 0;
-int  encontrou      = 0;
+int  hash_alvo        = 0;
+atomic_int  encontrou = 0;
 char senha_encontrada[16];
 
 void gera_pin(int numero, char *saida) {
-    // numero entre 0 e 9999
-    sprintf(saida, "%04d", numero);
+    // numero entre 0 e 999999
+    sprintf(saida, "%06d", numero);
 }
 
 double calcula_tempo_ms(struct timespec inicio, struct timespec fim) {
@@ -44,20 +44,11 @@ void *thread_bruteforce(void *arg) {
     ThreadArgs *args = (ThreadArgs *) arg;
     char tentativa[16];
 
-    printf("[Thread %d] Iniciando busca de %d ate %d\n",
-           args->id_thread, args->inicio, args->fim);
-
     for (int i = args->inicio; i <= args->fim; i++) {
 
-        // Verifica se outra thread já encontrou a senha
-        pthread_mutex_lock(&mutex_encontrou);
-        if (encontrou) {
-            pthread_mutex_unlock(&mutex_encontrou);
-            printf("[Thread %d] Encerrando (senha ja encontrada)\n",
-                   args->id_thread);
+        if (atomic_load(&encontrou))
             break;
-        }
-        pthread_mutex_unlock(&mutex_encontrou);
+
 
         gera_pin(i, tentativa);
         int h = hash_senha(tentativa);
@@ -66,18 +57,16 @@ void *thread_bruteforce(void *arg) {
                args->id_thread, tentativa, h);
 
         if (h == hash_alvo) {
-            pthread_mutex_lock(&mutex_encontrou);
-            if (!encontrou) {
-                encontrou = 1;
+            if (atomic_exchange(&encontrou, 1) == 0) {
                 strcpy(senha_encontrada, tentativa);
                 printf("[Thread %d] ENCONTROU! Senha = %s\n",
-                       args->id_thread, senha_encontrada);
+                    args->id_thread, senha_encontrada);
             }
-            pthread_mutex_unlock(&mutex_encontrou);
+
             break;
         }
 
-        // usleep(50000); // opcional: 50 ms pra saída ficar mais legível
+        /* usleep(50000); // opcional: 50 ms pra saída ficar mais legível */
     }
 
     return NULL;
@@ -86,10 +75,9 @@ void *thread_bruteforce(void *arg) {
 void definir_senha() {
     char senha[16];
 
-    printf("Digite a senha (PIN de 4 digitos, ex: 0420): ");
+    printf("Digite a senha (PIN de 6 digitos, ex: 042089): ");
     if (scanf("%15s", senha) != 1) {
         printf("Erro de leitura da senha.\n");
-        // limpa stdin básico
         int ch;
         while ((ch = getchar()) != '\n' && ch != EOF) {}
         return;
@@ -126,13 +114,12 @@ void ataque_paralelo() {
     pthread_t  threads[num_threads];
     ThreadArgs args[num_threads];
 
-    int total = 10000;               // 0000..9999
+    int total = 1000000;               // 000000..999999
     int bloco = total / num_threads; // tamanho base de cada bloco
     int resto = total % num_threads; // sobra para distribuir
 
     encontrou = 0;
     memset(senha_encontrada, 0, sizeof(senha_encontrada));
-    pthread_mutex_init(&mutex_encontrou, NULL);
 
     struct timespec inicio, fim;
     clock_gettime(CLOCK_MONOTONIC, &inicio);
@@ -164,7 +151,6 @@ void ataque_paralelo() {
         printf("Senha nao encontrada. Tempo total: %.3f ms\n", tempo_ms);
     }
 
-    pthread_mutex_destroy(&mutex_encontrou);
 }
 
 int main() {
