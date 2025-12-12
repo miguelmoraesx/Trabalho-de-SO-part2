@@ -5,6 +5,15 @@
 #include <string.h>
 #include "hash_utils.h"
 
+#define VERBOSE 0  // 0 = sem spam de logs, 1 = com logs
+
+#if VERBOSE
+    #define LOG(...) printf(__VA_ARGS__)
+#else
+    #define LOG(...)
+#endif
+
+
 #define ARQUIVO_HASH "hash.txt"
 
 // Converte número 0..9999 para PIN de 4 dígitos (0000..9999)
@@ -62,8 +71,8 @@ void ataque_sequencial() {
         gera_pin(i, tentativa);
         int h = hash_senha(tentativa);
 
-        printf("[SEQ] Testando senha %s (hash=%d)\n", tentativa, h);
-
+        LOG("[SEQ] Testando senha %s (hash=%d)\n", tentativa, h);
+        
         if (h == hash_alvo) {
             encontrado = 1;
             clock_gettime(CLOCK_MONOTONIC, &fim);

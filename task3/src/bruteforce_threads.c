@@ -7,6 +7,14 @@
 #include <unistd.h>
 #include "hash_utils.h"
 
+#define VERBOSE 0  // 0 = sem prints internos, 1 = com prints
+
+#if VERBOSE
+    #define LOG(...) printf(__VA_ARGS__)
+#else
+    #define LOG(...)
+#endif
+
 #define ARQUIVO_HASH "hash.txt"
 
 typedef struct {
@@ -54,7 +62,7 @@ void *thread_bruteforce(void *arg) {
         gera_pin(i, tentativa);
         int h = hash_senha(tentativa);
 
-        printf("[Thread %d] Testando senha %s (hash=%d)\n",
+        LOG("[Thread %d] Testando senha %s (hash=%d)\n",
                args->id_thread, tentativa, h);
 
         if (h == hash_alvo) {
