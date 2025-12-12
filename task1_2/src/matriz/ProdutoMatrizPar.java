@@ -6,7 +6,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
-public class MultiplicaPar {
+public class ProdutoMatrizPar {
 
     private static class Tarefa implements Runnable {
         private final int[][] a;

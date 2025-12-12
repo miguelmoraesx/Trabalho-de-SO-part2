@@ -1,6 +1,6 @@
 package src.matriz;
 
-public class MultiplicaSeq {
+public class ProdutoMatrizSeq {
 
     /**
      * Calcula uma multiplicação de matrizes entre duas matrizes

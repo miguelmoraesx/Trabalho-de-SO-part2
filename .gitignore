@@ -21,6 +21,9 @@ build/
 target/
 bin/
 
+# log da questao 1 e 2
+log.txt
+
 # binários da questão 3
 task3/bin/
 task3/hash.txt
