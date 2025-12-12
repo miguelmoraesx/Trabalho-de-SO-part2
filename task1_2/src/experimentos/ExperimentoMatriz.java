@@ -9,7 +9,7 @@ public class ExperimentoMatriz {
 
     public static void run(int numThreads, int repeticoes) {
 
-        int n = 800;          // tamanho da matriz NxN
+        int n = 2_000;          // tamanho da matriz NxN
         int tamBloco = 16;    // bloco usado no paralelo
         int[][] A = GeradorDados.matrizAleatoria(n, n);
         int[][] B = GeradorDados.matrizAleatoria(n, n);

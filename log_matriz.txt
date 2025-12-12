@@ -1,0 +1,108 @@
+MATRIZ: Produto matricial sequencial | tempo = 35.360768 ms
+MATRIZ: Produto matricial paralelo | tempo = 77.612596 ms
+MATRIZ: Produto matricial paralelo | tempo = 4.683364 ms
+MATRIZ: Produto matricial paralelo | tempo = 4.657165 ms
+================================
+=== Relatório de Experimento ===
+Tamanho: 200 x 200
+Número de Threads: 4
+Tempo seq: 35.360768 ms
+Tempo par (média): 28.984375 ms
+Speedup: 1.2199941520215634
+================================
+MATRIZ: Produto matricial sequencial | tempo = 31.758163 ms
+MATRIZ: Produto matricial paralelo | tempo = 96.95408 ms
+MATRIZ: Produto matricial paralelo | tempo = 4.489576 ms
+MATRIZ: Produto matricial paralelo | tempo = 4.590443 ms
+================================
+=== Relatório de Experimento ===
+Tamanho: 200 x 200
+Número de Threads: 8
+Tempo seq: 31.758163 ms
+Tempo par (média): 35.344699 ms
+Speedup: 0.8985269049822718
+================================
+MATRIZ: Produto matricial sequencial | tempo = 31.857562 ms
+MATRIZ: Produto matricial paralelo | tempo = 172.867948 ms
+MATRIZ: Produto matricial paralelo | tempo = 5.825178 ms
+MATRIZ: Produto matricial paralelo | tempo = 5.770568 ms
+================================
+=== Relatório de Experimento ===
+Tamanho: 200 x 200
+Número de Threads: 16
+Tempo seq: 31.857562 ms
+Tempo par (média): 61.487898 ms
+Speedup: 0.5181110923648747
+================================
+MATRIZ: Produto matricial sequencial | tempo = 2039.432897 ms
+MATRIZ: Produto matricial paralelo | tempo = 764.976104 ms
+MATRIZ: Produto matricial paralelo | tempo = 688.365099 ms
+MATRIZ: Produto matricial paralelo | tempo = 677.874207 ms
+================================
+=== Relatório de Experimento ===
+Tamanho: 1000 x 1000
+Número de Threads: 4
+Tempo seq: 2039.432897 ms
+Tempo par (média): 710.405136 ms
+Speedup: 2.870802579614233
+================================
+MATRIZ: Produto matricial sequencial | tempo = 1951.662997 ms
+MATRIZ: Produto matricial paralelo | tempo = 585.906623 ms
+MATRIZ: Produto matricial paralelo | tempo = 450.814573 ms
+MATRIZ: Produto matricial paralelo | tempo = 441.363468 ms
+================================
+=== Relatório de Experimento ===
+Tamanho: 1000 x 1000
+Número de Threads: 8
+Tempo seq: 1951.662997 ms
+Tempo par (média): 492.694888 ms
+Speedup: 3.9612000135061276
+================================
+MATRIZ: Produto matricial sequencial | tempo = 1882.506524 ms
+MATRIZ: Produto matricial paralelo | tempo = 701.260452 ms
+MATRIZ: Produto matricial paralelo | tempo = 478.063093 ms
+MATRIZ: Produto matricial paralelo | tempo = 484.040001 ms
+================================
+=== Relatório de Experimento ===
+Tamanho: 1000 x 1000
+Número de Threads: 16
+Tempo seq: 1882.506524 ms
+Tempo par (média): 554.454515 ms
+Speedup: 3.395240679030272
+================================
+MATRIZ: Produto matricial sequencial | tempo = 102289.060571 ms
+MATRIZ: Produto matricial paralelo | tempo = 25019.932368 ms
+MATRIZ: Produto matricial paralelo | tempo = 18682.370434 ms
+MATRIZ: Produto matricial paralelo | tempo = 20502.664704 ms
+================================
+=== Relatório de Experimento ===
+Tamanho: 2000 x 2000
+Número de Threads: 4
+Tempo seq: 102289.060571 ms
+Tempo par (média): 21401.655835 ms
+Speedup: 4.779492828013698
+================================
+MATRIZ: Produto matricial sequencial | tempo = 78661.656882 ms
+MATRIZ: Produto matricial paralelo | tempo = 14096.695946 ms
+MATRIZ: Produto matricial paralelo | tempo = 11887.351947 ms
+MATRIZ: Produto matricial paralelo | tempo = 11772.038258 ms
+================================
+=== Relatório de Experimento ===
+Tamanho: 2000 x 2000
+Número de Threads: 8
+Tempo seq: 78661.656882 ms
+Tempo par (média): 12585.36205 ms
+Speedup: 6.250249819551278
+================================
+MATRIZ: Produto matricial sequencial | tempo = 62683.174236 ms
+MATRIZ: Produto matricial paralelo | tempo = 15851.978931 ms
+MATRIZ: Produto matricial paralelo | tempo = 14412.654643 ms
+MATRIZ: Produto matricial paralelo | tempo = 14265.008538 ms
+================================
+=== Relatório de Experimento ===
+Tamanho: 2000 x 2000
+Número de Threads: 16
+Tempo seq: 62683.174236 ms
+Tempo par (média): 14843.214037 ms
+Speedup: 4.22301895531172
+================================
