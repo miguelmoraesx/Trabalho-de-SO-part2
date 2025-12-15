@@ -106,3 +106,15 @@ Tempo seq: 13.26257 ms
 Tempo par (média): 64.101581 ms
 Speedup: 0.20689926508988912
 ================================
+VETOR: Produto escalar sequencial | tempo = 25.926098 ms
+VETOR: Produto escalar paralelo | tempo = 151.79608 ms
+VETOR: Produto escalar paralelo | tempo = 9.822511 ms
+VETOR: Produto escalar paralelo | tempo = 8.058729 ms
+================================
+=== Relatório de Experimento ===
+Tamanho: 10000000
+Número de Threads: 16
+Tempo seq: 25.926098 ms
+Tempo par (média): 56.559106 ms
+Speedup: 0.45838945898473005
+================================
